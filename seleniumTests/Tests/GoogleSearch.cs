@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using LoggingExtensions.Logging;
 
 
 namespace seleniumTests
@@ -23,6 +24,7 @@ namespace seleniumTests
                 driver.FindElement(By.Name("q")).SendKeys(Keys.Enter);
                 Logger.Out(driver.Title);
                 Assert.AreEqual(" - Pesquisa do Google", driver.Title);
+                this.Log().Info(() => "Here is a log message with params which can be in Razor Views as well: '{0}'");
             }
             catch (NUnit.Framework.AssertionException ex)
             {

@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -43,6 +46,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="this.Log">
+      <HintPath>..\packages\this.Log.0.0.3.0\lib\net40\this.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="this.Log-log4net">
+      <HintPath>..\packages\this.Log-log4net.0.0.3.0\lib\net40\this.Log-log4net.dll</HintPath>
+    </Reference>
     <Reference Include="WebDriver">
       <HintPath>..\packages\Selenium.WebDriver.2.39.0\lib\net40\WebDriver.dll</HintPath>
     </Reference>
@@ -54,6 +63,7 @@
     <Compile Include="Auxiliar\InitiateFirefoxdriver.cs" />
     <Compile Include="Auxiliar\InitiateIEDriver.cs" />
     <Compile Include="Auxiliar\loginParameters.cs" />
+    <Compile Include="LogExtensions.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
