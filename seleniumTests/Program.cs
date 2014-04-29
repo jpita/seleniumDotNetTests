@@ -22,11 +22,12 @@ namespace seleniumTests
 
             try
             {
-                new loginParameters(driver,"http://psf.testing.vitacare.pt:8100/", "julia.wambier", "teste");
+                //new loginParameters(driver,"http://psf.testing.vitacare.pt:8100/", "julia.wambier", "teste");
+                new GoogleSearch(driver, "banana", "banana");
             }
             catch (Exception ex)
-            {                
-                throw ex;
+            {
+                Logger.Out(ex.Message);
             }
             finally
             {
