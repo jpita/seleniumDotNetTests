@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auxiliar\AuxFuncs.cs" />
     <Compile Include="Auxiliar\InitiateFirefoxdriver.cs" />
     <Compile Include="Auxiliar\InitiateIEDriver.cs" />
     <Compile Include="Auxiliar\loginParameters.cs" />

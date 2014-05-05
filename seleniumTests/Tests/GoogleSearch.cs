@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using LoggingExtensions.Logging;
+using OpenQA.Selenium.Support.UI;
 
 
 namespace seleniumTests
@@ -18,13 +19,30 @@ namespace seleniumTests
         {
             try
             {
-                driver.Navigate().GoToUrl("http://www.google.com");
+                driver.Navigate().GoToUrl("http://www.google.pt");
 
                 driver.FindElement(By.Name("q")).SendKeys(p1);
+                Logger.Out("Driver title before send keys enter =" + driver.Title);
+                Logger.Out("wait" + DateTime.Now);
+                long end = System.DateTime.Now.Millisecond + 5000;
+                while (System.DateTime.Now.Millisecond < end)
+                {
+                    IWebElement resultsDiv = driver.FindElement(By.ClassName("gssb_e"));
+
+                    // If results have been returned, the results are displayed in a drop down.
+                    if (resultsDiv.Displayed)
+                    {
+                        break;
+                    }
+                }
+                Logger.Out("after wait" + DateTime.Now);
                 driver.FindElement(By.Name("q")).SendKeys(Keys.Enter);
-                Logger.Out(driver.Title);
-                Assert.AreEqual(" - Pesquisa do Google", driver.Title);
-                this.Log().Info(() => "Here is a log message with params which can be in Razor Views as well: '{0}'");
+                driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+                Logger.Out("Driver title before wait =" + driver.Title);
+                AuxFuncs.WaitForPageLoad(10000, driver);
+                Logger.Out("Driver title after wait ="+driver.Title);
+                Assert.AreEqual("banana - Pesquisa do Google", driver.Title);
+                Console.WriteLine();
             }
             catch (NUnit.Framework.AssertionException ex)
             {
