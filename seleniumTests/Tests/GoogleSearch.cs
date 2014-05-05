@@ -36,22 +36,19 @@ namespace seleniumTests
                     }
                 }
                 Logger.Out("after wait" + DateTime.Now);
-                driver.FindElement(By.Name("q")).SendKeys(Keys.Enter);
-<<<<<<< HEAD
+                driver.FindElement(By.Name("q")).SendKeys(Keys.Enter); 
                 driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
                 Logger.Out("Driver title before wait =" + driver.Title);
                 AuxFuncs.WaitForPageLoad(10000, driver);
                 Logger.Out("Driver title after wait ="+driver.Title);
                 Assert.AreEqual("banana - Pesquisa do Google", driver.Title);
-                Console.WriteLine();
-=======
+                Console.WriteLine(); 
 				Logger.Out("before wait"+driver.Title);
 				WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 				wait.Until((d) => { return d.Title.StartsWith("selenium"); });
 				//Check that the Title is what we are expecting
 				Assert.AreEqual(p1+" - Pesquisa do Google", driver.Title);
-				Logger.Out("after wait & assert"+driver.Title);
->>>>>>> 6982a7f0a36b78e8d25adefee4556d91e0446b89
+				Logger.Out("after wait & assert"+driver.Title); 
             }
 			catch (Exception ex)
             {
