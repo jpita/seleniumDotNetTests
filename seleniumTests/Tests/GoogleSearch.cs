@@ -22,14 +22,16 @@ namespace seleniumTests
 
                 driver.FindElement(By.Name("q")).SendKeys(p1);
                 driver.FindElement(By.Name("q")).SendKeys(Keys.Enter);
-                Logger.Out(driver.Title);
-                Assert.AreEqual(" - Pesquisa do Google", driver.Title);
-                this.Log().Info(() => "Here is a log message with params which can be in Razor Views as well: '{0}'");
+				Logger.Out("before wait"+driver.Title);
+				WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+				wait.Until((d) => { return d.Title.StartsWith("selenium"); });
+				//Check that the Title is what we are expecting
+				Assert.AreEqual(p1+" - Pesquisa do Google", driver.Title);
+				Logger.Out("after wait & assert"+driver.Title);
             }
-            catch (NUnit.Framework.AssertionException ex)
+			catch (Exception ex)
             {
-
-                throw ex;
+				throw ex;
             }
         }
     }

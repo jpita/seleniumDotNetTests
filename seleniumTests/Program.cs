@@ -15,7 +15,7 @@ namespace seleniumTests
         static void Main(string[] args)
         {
             //Enable log4net
-            LoggingExtensions.Logging.Log.InitializeWith<LoggingExtensions.log4net.Log4NetLog>();
+			//LoggingExtensions.Logging.Log.InitializeWith<LoggingExtensions.log4net.Log4NetLog>();
             //gets the driver needed to drive Internet Explorer
             //IWebDriver driver = new InitiateIEDriver().Driver;
 
