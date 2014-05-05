@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="seleniumTests\Tests\GoogleSearch.cs">
+    <Files>
+      <File FileName="seleniumTests\Program.cs" Line="1" Column="1" />
+      <File FileName="seleniumTests\Tests\GoogleSearch.cs" Line="21" Column="68" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\jpita\Documents\GitHub\seleniumDotNetTests\seleniumTests\Tests\GoogleSearch.cs" line="30" column="12" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
