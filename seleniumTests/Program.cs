@@ -37,7 +37,7 @@ namespace seleniumTests
                 //Close the browser
                 driver.Quit();
                 //Close the console
-                System.Console.Out.Close();
+                Console.ReadLine();
             }
             
         }

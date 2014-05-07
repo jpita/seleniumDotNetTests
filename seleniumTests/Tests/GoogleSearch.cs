@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using LoggingExtensions.Logging;
+using OpenQA.Selenium.Support.UI;
 
 
 namespace seleniumTests
@@ -24,10 +25,10 @@ namespace seleniumTests
                 driver.FindElement(By.Name("q")).SendKeys(Keys.Enter);
 				Logger.Out("before wait"+driver.Title);
 				WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-				wait.Until((d) => { return d.Title.StartsWith("selenium"); });
+				wait.Until((d) => { return d.Title.StartsWith("banana"); });
 				//Check that the Title is what we are expecting
 				Assert.AreEqual(p1+" - Pesquisa do Google", driver.Title);
-				Logger.Out("after wait & assert"+driver.Title);
+				Logger.Out("after wait & assert- "+driver.Title);
             }
 			catch (Exception ex)
             {
