@@ -23,16 +23,21 @@ namespace seleniumTests
 
                 driver.FindElement(By.Name("q")).SendKeys(p1);
                 Logger.Out("Driver title before send keys enter =" + driver.Title);
-                //IWebElement resultsDiv = driver.FindElement(By.ClassName("gssb_e"));
-
+                //get the suggestions box from google
+                Logger.Out(DateTime.Now.ToString());
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+                 wait.Until((d) => { return d.FindElement(By.ClassName("gssb_e")).Displayed; });
+                IWebElement resultsDiv = driver.FindElement(By.ClassName("gssb_e"));
+                Logger.Out(DateTime.Now.ToString());
                 //// If results have been returned, the results are displayed in a drop down.
-                //if (resultsDiv.Displayed)
-                //{
-                //    break;
-                //}
+                if (resultsDiv.Displayed)
+                {
+                    Logger.Out("Suggestions appeared");
+                }
+                else
+                    throw new Exception("No suggestions");
                 driver.FindElement(By.Name("q")).SendKeys(Keys.Enter); 
 				Logger.Out("before wait"+driver.Title);
-				WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 				wait.Until((d) => { return d.Title.StartsWith("banana"); });
 				//Check that the Title is what we are expecting
 				Assert.AreEqual(p1+" - Pesquisa do Google", driver.Title);
