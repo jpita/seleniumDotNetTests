@@ -19,10 +19,18 @@ namespace seleniumTests
         {
             try
             {
-                driver.Navigate().GoToUrl("http://www.google.com");
+                driver.Navigate().GoToUrl("http://www.google.pt");
 
                 driver.FindElement(By.Name("q")).SendKeys(p1);
-                driver.FindElement(By.Name("q")).SendKeys(Keys.Enter);
+                Logger.Out("Driver title before send keys enter =" + driver.Title);
+                //IWebElement resultsDiv = driver.FindElement(By.ClassName("gssb_e"));
+
+                //// If results have been returned, the results are displayed in a drop down.
+                //if (resultsDiv.Displayed)
+                //{
+                //    break;
+                //}
+                driver.FindElement(By.Name("q")).SendKeys(Keys.Enter); 
 				Logger.Out("before wait"+driver.Title);
 				WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 				wait.Until((d) => { return d.Title.StartsWith("banana"); });
